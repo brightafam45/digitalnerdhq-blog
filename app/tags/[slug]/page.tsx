@@ -14,25 +14,22 @@ interface TagPageProps {
 export async function generateStaticParams() {
   const publication = await getPosts(50)
   const allPosts = publication?.posts?.edges?.map((e) => e.node) ?? []
-
   const tagSlugs = new Set<string>()
   allPosts.forEach((post) => {
     post.tags.forEach((tag) => tagSlugs.add(tag.slug))
   })
-
   return Array.from(tagSlugs).map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({ params }: TagPageProps): Promise<Metadata> {
-  // Fetch a few posts to find the tag name
   const publication = await getPostsByTag(params.slug, 1)
   const firstPost = publication?.posts?.edges?.[0]?.node
-  const tag = firstPost?.tags.find((t) => t.slug === params.slug)
+  const tag = firstPost?.tags.find((t: Tag) => t.slug === params.slug)
   const tagName = tag?.name ?? params.slug
 
   return {
     title: `#${tagName} Articles`,
-    description: `Browse all DigitalNerdHQ articles tagged with #${tagName}.`,
+    description: `Browse all DigitalNerdHQ articles tagged with #${tagName}. Digital marketing, tech, entrepreneurship, and more.`,
   }
 }
 
@@ -42,7 +39,6 @@ export default async function TagPage({ params }: TagPageProps) {
 
   if (!publication) notFound()
 
-  // Determine tag name from posts
   const tagInfo: Tag | undefined = posts
     .flatMap((p) => p.tags)
     .find((t) => t.slug === params.slug)
@@ -55,7 +51,8 @@ export default async function TagPage({ params }: TagPageProps) {
       <div className="mb-8">
         <Link
           href="/tags"
-          className="inline-flex items-center gap-2 text-sm font-ui text-gray-500 hover:text-primary transition-colors duration-200"
+          className="inline-flex items-center gap-1.5 text-sm font-medium transition-colors duration-200 hover:text-[#ef4d50]"
+          style={{ color: 'var(--text-muted)' }}
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
@@ -66,15 +63,20 @@ export default async function TagPage({ params }: TagPageProps) {
 
       {/* Header */}
       <div className="mb-10">
-        <div className="inline-flex items-center gap-2 bg-primary/5 px-3 py-1 rounded-full mb-4">
-          <span className="text-primary/40 font-heading font-bold text-sm">#</span>
-          <span className="text-sm font-ui font-medium text-primary/70">{tagName}</span>
-        </div>
-        <h1 className="font-heading font-black text-3xl md:text-4xl text-primary mb-3">
-          Posts tagged:{' '}
-          <span className="text-accent">#{tagName}</span>
+        <span
+          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
+          style={{ color: '#ef4d50', backgroundColor: 'rgba(239,77,80,0.1)' }}
+        >
+          # {tagName}
+        </span>
+        <h1
+          className="font-black text-3xl md:text-4xl mb-3"
+          style={{ color: 'var(--text)', fontFamily: 'Inter, sans-serif', fontWeight: 900 }}
+        >
+          Articles tagged:{' '}
+          <span style={{ color: '#ef4d50' }}>#{tagName}</span>
         </h1>
-        <p className="text-gray-500 font-ui text-base">
+        <p className="text-base" style={{ color: 'var(--text-muted)' }}>
           {posts.length} article{posts.length !== 1 ? 's' : ''} on this topic
         </p>
       </div>
@@ -82,12 +84,13 @@ export default async function TagPage({ params }: TagPageProps) {
       {/* Posts grid */}
       {posts.length === 0 ? (
         <div className="text-center py-16">
-          <p className="text-gray-400 font-ui text-base mb-4">
-            No articles found for <strong className="text-gray-600">#{tagName}</strong> yet.
+          <p className="mb-4 text-base" style={{ color: 'var(--text-muted)' }}>
+            No articles found for <strong style={{ color: 'var(--text)' }}>#{tagName}</strong> yet.
           </p>
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 bg-primary text-white font-ui font-medium text-sm px-5 py-2.5 rounded-xl hover:bg-primary/90 transition-all duration-200"
+            className="inline-flex items-center gap-2 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition-all duration-200 hover:opacity-90"
+            style={{ backgroundColor: '#180f41' }}
           >
             Browse all articles
           </Link>
@@ -107,7 +110,12 @@ export default async function TagPage({ params }: TagPageProps) {
             href="https://digitalnerdhq.hashnode.dev"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-white border border-gray-200 hover:border-primary text-primary font-ui font-medium text-sm px-6 py-3 rounded-xl transition-all duration-200 hover:shadow-sm"
+            className="inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded-xl transition-all duration-200 hover:shadow-md"
+            style={{
+              border: '1px solid var(--border)',
+              color: 'var(--text)',
+              backgroundColor: 'var(--card-bg)',
+            }}
           >
             View all #{tagName} posts on Hashnode ↗
           </a>

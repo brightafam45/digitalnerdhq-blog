@@ -1,0 +1,34 @@
+# DigitalNerdHQ Blog
+> Where digital minds level up
+
+This is the official blog of DigitalNerdHQ (https://www.digitalnerdhq.com).
+We publish articles on: digital marketing, tech, entrepreneurship, freelancing,
+automation, LinkedIn, Upwork, Fiverr, and online business.
+
+## Blog
+- All articles: https://digitalnerdhq-blog.vercel.app/blog
+- Topics: https://digitalnerdhq-blog.vercel.app/tags
+- Authors: https://digitalnerdhq-blog.vercel.app/authors
+- Search: https://digitalnerdhq-blog.vercel.app/search
+
+## About
+DigitalNerdHQ is a platform for creativity, innovation and empowerment.
+Our tagline: "Where digital minds level up."
+
+## Topics Covered
+- Digital marketing strategies
+- Freelancing on Upwork and Fiverr
+- LinkedIn growth and optimization
+- Business automation and tools
+- Online entrepreneurship
+- Tech trends and reviews
+- Content creation and monetization
+
+## Main Site
+- Homepage: https://www.digitalnerdhq.com
+- About: https://www.digitalnerdhq.com/about
+- Courses: https://www.digitalnerdhq.com/courses
+- Contact: https://www.digitalnerdhq.com/contact
+
+## Sitemap
+https://digitalnerdhq-blog.vercel.app/sitemap.xml
