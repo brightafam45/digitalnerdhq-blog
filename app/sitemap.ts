@@ -5,7 +5,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://digitalnerdhq-blog.
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [publication, tags] = await Promise.all([
-    getPosts(100),
+    getPosts(50),
     getAllTags(),
   ])
 
