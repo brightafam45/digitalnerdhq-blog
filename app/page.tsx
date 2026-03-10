@@ -1,5 +1,3 @@
-'use server'
-
 import { getPosts, getAllTags } from '@/lib/hashnode'
 import type { Post, Tag } from '@/types'
 import HeroGrid from '@/components/HeroGrid'
