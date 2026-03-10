@@ -17,7 +17,7 @@ export default function AuthorCard({ author }: AuthorCardProps) {
     >
       {/* Avatar */}
       {author.profilePicture ? (
-        <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-4" style={{ ringColor: 'var(--border)' }}>
+        <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-4">
           <Image
             src={author.profilePicture}
             alt={author.name}

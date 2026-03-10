@@ -239,12 +239,29 @@ interface GetAllTagsResponse {
   }
 }
 
+interface RawCommentNode {
+  id: string
+  content: { html: string; text?: string }
+  author: { name: string; profilePicture?: string }
+  dateAdded: string
+  replies?: {
+    edges: {
+      node: {
+        id: string
+        content: { html: string; text?: string }
+        author: { name: string; profilePicture?: string }
+        dateAdded: string
+      }
+    }[]
+  }
+}
+
 interface GetCommentsResponse {
   post: {
     id: string
     comments: {
       edges: {
-        node: Comment
+        node: RawCommentNode
       }[]
     }
   } | null

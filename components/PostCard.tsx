@@ -193,7 +193,7 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
           </div>
           <div className="mt-5 flex items-center gap-3">
             {post.author.profilePicture && (
-              <div className="relative w-9 h-9 rounded-full overflow-hidden flex-shrink-0 ring-2" style={{ ringColor: 'var(--border)' }}>
+              <div className="relative w-9 h-9 rounded-full overflow-hidden flex-shrink-0 ring-2">
                 <Image
                   src={post.author.profilePicture}
                   alt={post.author.name}

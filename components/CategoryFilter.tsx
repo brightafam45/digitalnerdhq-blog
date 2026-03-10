@@ -37,7 +37,6 @@ export default function CategoryFilter({ tags, activeSlug, onCategoryChange }: C
                   backgroundColor: '#ef4d50',
                   color: 'white',
                   boxShadow: '0 2px 12px rgba(239,77,80,0.35)',
-                  focusRingColor: '#ef4d50',
                 }
               : {
                   border: '1.5px solid var(--border)',

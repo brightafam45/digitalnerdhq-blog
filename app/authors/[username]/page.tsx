@@ -39,7 +39,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
       >
         {/* Large avatar */}
         {author.profilePicture ? (
-          <div className="relative w-24 h-24 rounded-full overflow-hidden flex-shrink-0 ring-4" style={{ ringColor: 'var(--border)' }}>
+          <div className="relative w-24 h-24 rounded-full overflow-hidden flex-shrink-0" style={{ boxShadow: '0 0 0 4px #4a90e2' }}>
             <Image
               src={author.profilePicture}
               alt={author.name}

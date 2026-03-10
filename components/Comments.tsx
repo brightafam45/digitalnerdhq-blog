@@ -12,7 +12,7 @@ interface CommentsProps {
 function CommentAvatar({ name, picture }: { name: string; picture?: string }) {
   if (picture) {
     return (
-      <div className="relative w-8 h-8 rounded-full overflow-hidden flex-shrink-0 ring-2" style={{ ringColor: 'var(--border)' }}>
+      <div className="relative w-8 h-8 rounded-full overflow-hidden flex-shrink-0 ring-2">
         <Image src={picture} alt={name} fill className="object-cover" sizes="32px" />
       </div>
     )

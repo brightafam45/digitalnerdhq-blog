@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import type { Post } from '@/types'
 import PostCard from '@/components/PostCard'
@@ -24,7 +24,7 @@ function highlightText(text: string, query: string): string {
   )
 }
 
-export default function SearchPage() {
+function SearchPageInner() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const initialQuery = searchParams.get('q') ?? ''
@@ -250,5 +250,13 @@ export default function SearchPage() {
         </>
       )}
     </div>
+  )
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">Loading search...</div>}>
+      <SearchPageInner />
+    </Suspense>
   )
 }

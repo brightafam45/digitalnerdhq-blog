@@ -186,7 +186,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             >
               <div className="flex items-center gap-2.5">
                 {post.author.profilePicture && (
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0 ring-2" style={{ ringColor: 'var(--border)' }}>
+                  <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0 ring-2">
                     <Image
                       src={post.author.profilePicture}
                       alt={post.author.name}
