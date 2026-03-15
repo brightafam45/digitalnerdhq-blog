@@ -19,20 +19,21 @@ function extractHeadings(html: string): Heading[] {
   const doc = parser.parseFromString(html, 'text/html')
   const elements = doc.querySelectorAll('h2, h3')
   const headings: Heading[] = []
+  const seen = new Map<string, number>()
 
-  elements.forEach((el, index) => {
+  elements.forEach((el) => {
     const text = el.textContent?.trim() ?? ''
     if (!text) return
 
-    // Generate ID if not present
-    const id =
-      el.id ||
-      text
-        .toLowerCase()
-        .replace(/[^a-z0-9\s]/g, '')
-        .replace(/\s+/g, '-')
-        .slice(0, 60) +
-        (index > 0 ? `-${index}` : '')
+    const base = text
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, '')
+      .replace(/\s+/g, '-')
+      .slice(0, 60)
+
+    const count = seen.get(base) ?? 0
+    seen.set(base, count + 1)
+    const id = count === 0 ? base : `${base}-${count}`
 
     headings.push({
       id,
