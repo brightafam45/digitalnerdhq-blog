@@ -10,6 +10,8 @@ interface Heading {
 
 interface JumpNavProps {
   contentHtml: string
+  defaultOpen?: boolean
+  closeOnClick?: boolean
 }
 
 function extractHeadings(html: string): Heading[] {
@@ -35,20 +37,20 @@ function extractHeadings(html: string): Heading[] {
     seen.set(base, count + 1)
     const id = count === 0 ? base : `${base}-${count}`
 
-    headings.push({
-      id,
-      text,
-      level: parseInt(el.tagName[1], 10),
-    })
+    headings.push({ id, text, level: parseInt(el.tagName[1], 10) })
   })
 
   return headings
 }
 
-export default function JumpNav({ contentHtml }: JumpNavProps) {
+export default function JumpNav({
+  contentHtml,
+  defaultOpen = true,
+  closeOnClick = false,
+}: JumpNavProps) {
   const [headings, setHeadings] = useState<Heading[]>([])
   const [activeId, setActiveId] = useState<string>('')
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(defaultOpen)
   const observerRef = useRef<IntersectionObserver | null>(null)
 
   useEffect(() => {
@@ -71,10 +73,8 @@ export default function JumpNav({ contentHtml }: JumpNavProps) {
 
   useEffect(() => {
     if (headings.length === 0) return
-
     window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
-
     return () => {
       window.removeEventListener('scroll', handleScroll)
       observerRef.current?.disconnect()
@@ -84,30 +84,43 @@ export default function JumpNav({ contentHtml }: JumpNavProps) {
   const handleClick = (id: string) => {
     const el = document.getElementById(id)
     if (el) {
-      const offset = 80
-      const top = el.getBoundingClientRect().top + window.scrollY - offset
+      const top = el.getBoundingClientRect().top + window.scrollY - 80
       window.scrollTo({ top, behavior: 'smooth' })
     }
+    if (closeOnClick) setOpen(false)
   }
 
   if (headings.length === 0) return null
+
+  const activeHeading = headings.find((h) => h.id === activeId)
 
   return (
     <nav aria-label="In this article">
       {/* Toggle header */}
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="w-full flex items-center justify-between mb-3 group"
+        className="w-full flex items-center justify-between gap-3 group"
         aria-expanded={open}
       >
-        <h3
-          className="text-xs font-bold uppercase tracking-widest"
-          style={{ color: 'var(--text-muted)' }}
-        >
-          In this article
-        </h3>
+        <div className="flex items-center gap-2 min-w-0">
+          <h3
+            className="text-xs font-bold tracking-wide flex-shrink-0"
+            style={{ color: 'var(--text-muted)' }}
+          >
+            In this article
+          </h3>
+          {/* Show active heading name when collapsed */}
+          {!open && activeHeading && (
+            <span
+              className="text-xs font-medium truncate"
+              style={{ color: '#ef4d50' }}
+            >
+              · {activeHeading.text}
+            </span>
+          )}
+        </div>
         <svg
-          className="w-4 h-4 transition-transform duration-200 flex-shrink-0"
+          className="w-4 h-4 flex-shrink-0 transition-transform duration-200"
           style={{
             color: 'var(--text-muted)',
             transform: open ? 'rotate(0deg)' : 'rotate(-90deg)',
@@ -125,12 +138,13 @@ export default function JumpNav({ contentHtml }: JumpNavProps) {
       <div
         style={{
           overflow: 'hidden',
-          maxHeight: open ? '9999px' : '0px',
+          maxHeight: open ? '60vh' : '0px',
           opacity: open ? 1 : 0,
           transition: 'max-height 0.3s ease, opacity 0.2s ease',
+          overflowY: open ? 'auto' : 'hidden',
         }}
       >
-        <ol className="space-y-1">
+        <ol className="space-y-0.5 pt-3">
           {headings.map((heading, index) => {
             const isActive = activeId === heading.id
             return (

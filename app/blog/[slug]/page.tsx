@@ -222,13 +222,24 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <AISummarizer url={articleUrl} />
           </div>
 
-          {/* Mobile: Jump Nav inline */}
+          {/* Mobile: Sticky TOC bar */}
           {post.content?.html && (
             <div
-              className="lg:hidden max-w-3xl mb-8 p-4 rounded-xl"
-              style={{ backgroundColor: 'var(--card-bg)', border: '1px solid var(--border)' }}
+              className="lg:hidden sticky z-30 -mx-4 sm:-mx-6 mb-6"
+              style={{
+                top: '64px',
+                backgroundColor: 'var(--bg)',
+                borderBottom: '1px solid var(--border)',
+                borderTop: '1px solid var(--border)',
+              }}
             >
-              <JumpNav contentHtml={post.content.html} />
+              <div className="px-4 sm:px-6 py-3">
+                <JumpNav
+                  contentHtml={post.content.html}
+                  defaultOpen={false}
+                  closeOnClick
+                />
+              </div>
             </div>
           )}
 
