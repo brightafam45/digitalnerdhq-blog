@@ -8,7 +8,7 @@ import type { Metadata } from 'next'
 export const revalidate = 60
 
 interface TagPageProps {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -22,10 +22,11 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: TagPageProps): Promise<Metadata> {
-  const publication = await getPostsByTag(params.slug, 1)
+  const { slug } = await params
+  const publication = await getPostsByTag(slug, 1)
   const firstPost = publication?.posts?.edges?.[0]?.node
-  const tag = firstPost?.tags.find((t: Tag) => t.slug === params.slug)
-  const tagName = tag?.name ?? params.slug
+  const tag = firstPost?.tags.find((t: Tag) => t.slug === slug)
+  const tagName = tag?.name ?? slug
 
   return {
     title: `#${tagName} Articles`,
@@ -34,16 +35,17 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
 }
 
 export default async function TagPage({ params }: TagPageProps) {
-  const publication = await getPostsByTag(params.slug, 24)
+  const { slug } = await params
+  const publication = await getPostsByTag(slug, 24)
   const posts: Post[] = publication?.posts?.edges?.map((e) => e.node) ?? []
 
   if (!publication) notFound()
 
   const tagInfo: Tag | undefined = posts
     .flatMap((p) => p.tags)
-    .find((t) => t.slug === params.slug)
+    .find((t) => t.slug === slug)
 
-  const tagName = tagInfo?.name ?? params.slug
+  const tagName = tagInfo?.name ?? slug
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

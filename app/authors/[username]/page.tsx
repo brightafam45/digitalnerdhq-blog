@@ -8,11 +8,12 @@ import PostCard from '@/components/PostCard'
 export const revalidate = 3600
 
 interface AuthorPageProps {
-  params: { username: string }
+  params: Promise<{ username: string }>
 }
 
 export async function generateMetadata({ params }: AuthorPageProps): Promise<Metadata> {
-  const posts = await getAuthorPosts(params.username, 1)
+  const { username } = await params
+  const posts = await getAuthorPosts(username, 1)
   if (posts.length === 0) return { title: 'Author Not Found' }
   const author = posts[0].author
   return {
@@ -22,7 +23,8 @@ export async function generateMetadata({ params }: AuthorPageProps): Promise<Met
 }
 
 export default async function AuthorPage({ params }: AuthorPageProps) {
-  const posts: Post[] = await getAuthorPosts(params.username, 50)
+  const { username } = await params
+  const posts: Post[] = await getAuthorPosts(username, 50)
 
   if (posts.length === 0) {
     notFound()

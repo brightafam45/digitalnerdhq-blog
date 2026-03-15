@@ -7,11 +7,12 @@ export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
 interface Props {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export default async function OGImage({ params }: Props) {
-  const post = await getPost(params.slug)
+  const { slug } = await params
+  const post = await getPost(slug)
 
   const title = post?.title ?? 'DigitalNerdHQ Blog'
   const tag = post?.tags?.[0]?.name ?? null

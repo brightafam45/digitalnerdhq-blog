@@ -16,7 +16,7 @@ import Breadcrumb from '@/components/Breadcrumb'
 export const revalidate = 3600
 
 interface ArticlePageProps {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -26,10 +26,11 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
-  const post = await getPost(params.slug)
+  const { slug } = await params
+  const post = await getPost(slug)
   if (!post) return { title: 'Article Not Found' }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://digitalnerdhq-blog.vercel.app'
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://blog.digitalnerdhq.com'
   const title = post.seo?.title ?? post.title
   const description = post.seo?.description ?? post.brief
   const articleUrl = `${siteUrl}/blog/${post.slug}`
@@ -61,12 +62,13 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
-  const post = await getPost(params.slug)
+  const { slug } = await params
+  const post = await getPost(slug)
   if (!post) notFound()
 
   const relatedPosts = await getRelatedPosts(post.tags, post.slug, 3)
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://digitalnerdhq-blog.vercel.app'
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://blog.digitalnerdhq.com'
   const articleUrl = `${siteUrl}/blog/${post.slug}`
   const formattedDate = format(new Date(post.publishedAt), 'MMMM d, yyyy')
   const updatedDate = post.updatedAt
