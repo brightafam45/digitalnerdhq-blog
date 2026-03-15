@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import NewsletterPopup from '@/components/NewsletterPopup'
 import NavButtons from '@/components/NavButtons'
+import BackToTop from '@/components/BackToTop'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -111,6 +112,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
+        <link rel="alternate" type="application/rss+xml" title="DigitalNerdHQ Blog" href="/feed.xml" />
       </head>
       <body
         className="font-[Inter,sans-serif] antialiased"
@@ -121,6 +123,7 @@ export default function RootLayout({
           <main className="min-h-screen pb-16 lg:pb-0">{children}</main>
           <Footer />
           <NavButtons />
+          <BackToTop />
           <NewsletterPopup />
         </ThemeProvider>
       </body>

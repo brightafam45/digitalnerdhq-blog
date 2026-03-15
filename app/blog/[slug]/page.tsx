@@ -11,6 +11,7 @@ import ArticleSidebar from '@/components/ArticleSidebar'
 import AuthorCard from '@/components/AuthorCard'
 import Comments from '@/components/Comments'
 import JumpNav from '@/components/JumpNav'
+import Breadcrumb from '@/components/Breadcrumb'
 
 export const revalidate = 3600
 
@@ -48,13 +49,13 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
       tags: post.tags.map((t) => t.name),
       images: post.coverImage?.url
         ? [{ url: post.coverImage.url, width: 1200, height: 630, alt: post.title }]
-        : [],
+        : undefined,
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: post.coverImage?.url ? [post.coverImage.url] : [],
+      images: post.coverImage?.url ? [post.coverImage.url] : undefined,
     },
   }
 }
@@ -139,19 +140,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         )}
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          {/* Back link */}
-          <div className="mb-6">
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-1.5 text-sm font-medium transition-colors duration-200 hover:text-[#ef4d50]"
-              style={{ color: 'var(--text-muted)' }}
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-              </svg>
-              All Articles
-            </Link>
-          </div>
+          <Breadcrumb items={[
+            { label: 'Home', href: '/' },
+            { label: 'Blog', href: '/blog' },
+            { label: post.title },
+          ]} />
 
           {/* Article header */}
           <div className="max-w-3xl mb-8">
