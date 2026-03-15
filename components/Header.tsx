@@ -91,8 +91,6 @@ export default function Header() {
             <DarkModeToggle />
             <a
               href="https://www.digitalnerdhq.com/contact"
-              target="_blank"
-              rel="noopener noreferrer"
               className="ml-1 px-4 py-2 rounded-lg text-sm font-semibold text-white border border-white/30 hover:bg-white hover:text-[#060312] transition-all duration-200 hover:border-white"
             >
               Contact Us
@@ -180,6 +178,7 @@ export default function Header() {
             >
               Contact Us
             </a>
+
           </div>
         </nav>
       </div>

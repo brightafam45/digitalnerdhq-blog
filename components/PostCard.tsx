@@ -13,7 +13,7 @@ function PlaceholderImage({ title }: { title: string }) {
     <div
       className="w-full h-full flex items-center justify-center"
       style={{
-        background: 'linear-gradient(135deg, #180f41 0%, #2d2460 50%, #ef4d5020 100%)',
+        background: 'linear-gradient(135deg, #060312 0%, #1e2631 50%, #ef4d5020 100%)',
       }}
     >
       <span
@@ -282,6 +282,12 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
               <time dateTime={post.publishedAt}>{formattedDate}</time>
               <span>·</span>
               <span>{post.readTimeInMinutes} min read</span>
+              {post.views ? (
+                <>
+                  <span>·</span>
+                  <span>{post.views.toLocaleString()} views</span>
+                </>
+              ) : null}
             </div>
           </div>
         </div>

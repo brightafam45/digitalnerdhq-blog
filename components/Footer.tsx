@@ -16,9 +16,9 @@ export default function Footer() {
 
       {/* Main footer content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Logo + tagline + socials */}
-          <div className="md:col-span-1">
+          <div>
             <Link href="/" aria-label="DigitalNerdHQ Blog">
               <Logo size="md" showTagline darkBg />
             </Link>
@@ -26,7 +26,7 @@ export default function Footer() {
               Where digital minds level up. Articles on digital marketing, tech, entrepreneurship, and online business.
             </p>
 
-            {/* Social icons */}
+            {/* Social icons — these intentionally open in new tab */}
             <div className="mt-6 flex items-center gap-3">
               {/* Instagram */}
               <a
@@ -94,46 +94,19 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Company column */}
+          {/* Company column — no new tab, same window */}
           <div>
             <h3 className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">
               Company
             </h3>
             <ul className="space-y-2.5">
               {[
-                { href: 'https://www.digitalnerdhq.com', label: 'Main Site ↗' },
+                { href: 'https://www.digitalnerdhq.com', label: 'Main Site' },
                 { href: 'https://www.digitalnerdhq.com/contact', label: 'Contact Us' },
               ].map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-white/60 hover:text-white transition-colors duration-200"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal column */}
-          <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">
-              Legal
-            </h3>
-            <ul className="space-y-2.5">
-              {[
-                { href: 'https://www.digitalnerdhq.com/privacy', label: 'Privacy Policy' },
-                { href: 'https://www.digitalnerdhq.com/terms', label: 'Terms & Conditions' },
-                { href: 'https://www.digitalnerdhq.com/refund', label: 'Refund Policy' },
-              ].map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="text-sm text-white/60 hover:text-white transition-colors duration-200"
                   >
                     {link.label}
@@ -153,8 +126,6 @@ export default function Footer() {
             Built with{' '}
             <a
               href="https://nextjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
               className="hover:text-white/50 transition-colors"
             >
               Next.js
@@ -162,8 +133,6 @@ export default function Footer() {
             {' & '}
             <a
               href="https://hashnode.com"
-              target="_blank"
-              rel="noopener noreferrer"
               className="hover:text-white/50 transition-colors"
             >
               Hashnode
