@@ -248,7 +248,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <AuthorCard author={post.author} />
 
               {/* Comments */}
-              <Comments postId={post.id} />
+              <Comments postId={post.id} postSlug={post.slug} />
             </div>
 
             {/* Sidebar (35%) */}

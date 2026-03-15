@@ -48,6 +48,7 @@ function extractHeadings(html: string): Heading[] {
 export default function JumpNav({ contentHtml }: JumpNavProps) {
   const [headings, setHeadings] = useState<Heading[]>([])
   const [activeId, setActiveId] = useState<string>('')
+  const [open, setOpen] = useState(true)
   const observerRef = useRef<IntersectionObserver | null>(null)
 
   useEffect(() => {
@@ -93,52 +94,78 @@ export default function JumpNav({ contentHtml }: JumpNavProps) {
 
   return (
     <nav aria-label="In this article">
-      <h3
-        className="text-xs font-bold uppercase tracking-widest mb-3"
-        style={{ color: 'var(--text-muted)' }}
+      {/* Toggle header */}
+      <button
+        onClick={() => setOpen((prev) => !prev)}
+        className="w-full flex items-center justify-between mb-3 group"
+        aria-expanded={open}
       >
-        In this article
-      </h3>
-      <ol className="space-y-1">
-        {headings.map((heading, index) => {
-          const isActive = activeId === heading.id
-          return (
-            <li key={heading.id}>
-              <button
-                onClick={() => handleClick(heading.id)}
-                className="w-full text-left flex items-start gap-2.5 py-1.5 px-2 rounded-lg transition-all duration-200 group"
-                style={
-                  isActive
-                    ? {
-                        backgroundColor: 'rgba(239,77,80,0.08)',
-                        color: '#ef4d50',
-                      }
-                    : {
-                        color: 'var(--text-muted)',
-                      }
-                }
-              >
-                <span
-                  className="flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold mt-0.5"
+        <h3
+          className="text-xs font-bold uppercase tracking-widest"
+          style={{ color: 'var(--text-muted)' }}
+        >
+          In this article
+        </h3>
+        <svg
+          className="w-4 h-4 transition-transform duration-200 flex-shrink-0"
+          style={{
+            color: 'var(--text-muted)',
+            transform: open ? 'rotate(0deg)' : 'rotate(-90deg)',
+          }}
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      {/* Collapsible list */}
+      <div
+        style={{
+          overflow: 'hidden',
+          maxHeight: open ? '9999px' : '0px',
+          opacity: open ? 1 : 0,
+          transition: 'max-height 0.3s ease, opacity 0.2s ease',
+        }}
+      >
+        <ol className="space-y-1">
+          {headings.map((heading, index) => {
+            const isActive = activeId === heading.id
+            return (
+              <li key={heading.id}>
+                <button
+                  onClick={() => handleClick(heading.id)}
+                  className="w-full text-left flex items-start gap-2.5 py-1.5 px-2 rounded-lg transition-all duration-200 group"
                   style={
                     isActive
-                      ? { backgroundColor: '#ef4d50', color: 'white' }
-                      : { backgroundColor: 'var(--border)', color: 'var(--text-muted)' }
+                      ? { backgroundColor: 'rgba(239,77,80,0.08)', color: '#ef4d50' }
+                      : { color: 'var(--text-muted)' }
                   }
                 >
-                  {index + 1}
-                </span>
-                <span
-                  className="text-sm leading-snug group-hover:text-[#ef4d50] transition-colors"
-                  style={{ paddingLeft: heading.level === 3 ? '0.75rem' : '0' }}
-                >
-                  {heading.text}
-                </span>
-              </button>
-            </li>
-          )
-        })}
-      </ol>
+                  <span
+                    className="flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold mt-0.5"
+                    style={
+                      isActive
+                        ? { backgroundColor: '#ef4d50', color: 'white' }
+                        : { backgroundColor: 'var(--border)', color: 'var(--text-muted)' }
+                    }
+                  >
+                    {index + 1}
+                  </span>
+                  <span
+                    className="text-sm leading-snug group-hover:text-[#ef4d50] transition-colors"
+                    style={{ paddingLeft: heading.level === 3 ? '0.75rem' : '0' }}
+                  >
+                    {heading.text}
+                  </span>
+                </button>
+              </li>
+            )
+          })}
+        </ol>
+      </div>
     </nav>
   )
 }

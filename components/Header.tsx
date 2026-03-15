@@ -172,8 +172,6 @@ export default function Header() {
           <div className="mt-3 pt-3 border-t border-white/10">
             <a
               href="https://www.digitalnerdhq.com/contact"
-              target="_blank"
-              rel="noopener noreferrer"
               className="flex items-center justify-center px-4 py-3 rounded-lg text-sm font-semibold text-white border border-white/30 hover:bg-white hover:text-[#060312] transition-all duration-200"
             >
               Contact Us

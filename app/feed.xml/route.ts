@@ -1,7 +1,6 @@
 import { getPosts } from '@/lib/hashnode'
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 3600
+export const revalidate = 60
 
 export async function GET() {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://blog.digitalnerdhq.com'

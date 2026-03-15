@@ -44,6 +44,22 @@ export default function ArticleContent({ html }: ArticleContentProps) {
     })
   }, [html])
 
+  // Wrap tables in scrollable containers for mobile
+  useEffect(() => {
+    if (!ref.current) return
+    const tables = ref.current.querySelectorAll<HTMLTableElement>('table')
+    tables.forEach((table) => {
+      if (table.parentElement?.dataset.tableWrapper) return
+      const wrapper = document.createElement('div')
+      wrapper.style.cssText = 'overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;margin-top:1.5rem;margin-bottom:1.5rem'
+      wrapper.dataset.tableWrapper = 'true'
+      table.style.marginTop = '0'
+      table.style.marginBottom = '0'
+      table.insertAdjacentElement('beforebegin', wrapper)
+      wrapper.appendChild(table)
+    })
+  }, [html])
+
   useEffect(() => {
     if (!ref.current) return
     const preBlocks = ref.current.querySelectorAll<HTMLPreElement>('pre')

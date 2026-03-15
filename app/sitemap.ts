@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { getPosts, getAllTags } from '@/lib/hashnode'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://digitalnerdhq-blog.vercel.app'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://blog.digitalnerdhq.com'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [publication, tags] = await Promise.all([

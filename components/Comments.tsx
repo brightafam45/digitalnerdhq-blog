@@ -7,6 +7,7 @@ import type { Comment } from '@/types'
 
 interface CommentsProps {
   postId: string
+  postSlug: string
 }
 
 function CommentAvatar({ name, picture }: { name: string; picture?: string }) {
@@ -63,15 +64,11 @@ function CommentItem({ comment, isReply = false }: { comment: Comment; isReply?:
   )
 }
 
-export default function Comments({ postId }: CommentsProps) {
+export default function Comments({ postId, postSlug }: CommentsProps) {
   const [comments, setComments] = useState<Comment[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [formName, setFormName] = useState('')
-  const [formEmail, setFormEmail] = useState('')
-  const [formComment, setFormComment] = useState('')
-  const [submitting, setSubmitting] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
+  const hashnodeUrl = `https://digitalnerdhq.hashnode.dev/${postSlug}#comments`
 
   const fetchComments = useCallback(async () => {
     try {
@@ -89,20 +86,6 @@ export default function Comments({ postId }: CommentsProps) {
   useEffect(() => {
     fetchComments()
   }, [fetchComments])
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!formName.trim() || !formComment.trim()) return
-
-    setSubmitting(true)
-    // Simulated submission — real implementation would call Hashnode comment mutation
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    setSubmitting(false)
-    setSubmitted(true)
-    setFormName('')
-    setFormEmail('')
-    setFormComment('')
-  }
 
   return (
     <section className="mt-12 pt-10" style={{ borderTop: '2px solid var(--border)' }}>
@@ -143,7 +126,7 @@ export default function Comments({ postId }: CommentsProps) {
           style={{ border: '1px dashed var(--border)' }}
         >
           <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-            No comments yet. Be the first to leave a comment!
+            No comments yet. Be the first to leave a comment on Hashnode!
           </p>
         </div>
       ) : (
@@ -156,130 +139,36 @@ export default function Comments({ postId }: CommentsProps) {
         </div>
       )}
 
-      {/* Comment form */}
+      {/* Comment CTA */}
       <div
-        className="mt-8 p-6 rounded-2xl"
+        className="mt-8 p-6 rounded-2xl text-center"
         style={{ backgroundColor: 'var(--card-bg)', border: '1px solid var(--border)' }}
       >
-        <h3
-          className="font-bold text-lg mb-1"
-          style={{ color: 'var(--text)' }}
+        <svg
+          className="w-8 h-8 mx-auto mb-3"
+          style={{ color: '#ef4d50' }}
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={1.5}
         >
-          Leave a comment
+          <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+        </svg>
+        <h3 className="font-bold text-lg mb-1" style={{ color: 'var(--text)' }}>
+          Join the conversation
         </h3>
-        <p className="text-xs mb-5" style={{ color: 'var(--text-muted)' }}>
-          Comments are moderated and approved before publishing.
+        <p className="text-sm mb-4" style={{ color: 'var(--text-muted)' }}>
+          Comments are hosted on Hashnode. Click below to read and leave a comment.
         </p>
-
-        {submitted ? (
-          <div
-            className="text-center py-8 rounded-xl"
-            style={{ backgroundColor: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.2)' }}
-          >
-            <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-3">
-              <svg className="w-6 h-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            <p className="font-semibold text-sm" style={{ color: 'var(--text)' }}>
-              Comment submitted!
-            </p>
-            <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
-              Your comment is pending moderation.
-            </p>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label
-                  htmlFor="comment-name"
-                  className="block text-xs font-semibold mb-1.5"
-                  style={{ color: 'var(--text)' }}
-                >
-                  Name *
-                </label>
-                <input
-                  id="comment-name"
-                  type="text"
-                  value={formName}
-                  onChange={(e) => setFormName(e.target.value)}
-                  required
-                  placeholder="Your name"
-                  className="w-full px-3 py-2.5 rounded-lg text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#ef4d50]/30"
-                  style={{
-                    backgroundColor: 'var(--bg)',
-                    border: '1px solid var(--border)',
-                    color: 'var(--text)',
-                  }}
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="comment-email"
-                  className="block text-xs font-semibold mb-1.5"
-                  style={{ color: 'var(--text)' }}
-                >
-                  Email <span style={{ color: 'var(--text-muted)' }}>(not shown publicly)</span>
-                </label>
-                <input
-                  id="comment-email"
-                  type="email"
-                  value={formEmail}
-                  onChange={(e) => setFormEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  className="w-full px-3 py-2.5 rounded-lg text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#ef4d50]/30"
-                  style={{
-                    backgroundColor: 'var(--bg)',
-                    border: '1px solid var(--border)',
-                    color: 'var(--text)',
-                  }}
-                />
-              </div>
-            </div>
-            <div>
-              <label
-                htmlFor="comment-text"
-                className="block text-xs font-semibold mb-1.5"
-                style={{ color: 'var(--text)' }}
-              >
-                Comment *
-              </label>
-              <textarea
-                id="comment-text"
-                value={formComment}
-                onChange={(e) => setFormComment(e.target.value)}
-                required
-                rows={4}
-                placeholder="Share your thoughts..."
-                className="w-full px-3 py-2.5 rounded-lg text-sm resize-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#ef4d50]/30"
-                style={{
-                  backgroundColor: 'var(--bg)',
-                  border: '1px solid var(--border)',
-                  color: 'var(--text)',
-                }}
-              />
-            </div>
-            <button
-              type="submit"
-              disabled={submitting}
-              className="px-6 py-3 rounded-lg text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98] disabled:opacity-60 flex items-center gap-2"
-              style={{ backgroundColor: '#ef4d50' }}
-            >
-              {submitting ? (
-                <>
-                  <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                  </svg>
-                  Submitting...
-                </>
-              ) : (
-                'Submit Comment'
-              )}
-            </button>
-          </form>
-        )}
+        <a
+          href={hashnodeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white transition-all duration-200 hover:opacity-90"
+          style={{ backgroundColor: '#ef4d50' }}
+        >
+          Comment on Hashnode ↗
+        </a>
       </div>
     </section>
   )
