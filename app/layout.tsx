@@ -5,7 +5,6 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import NewsletterPopup from '@/components/NewsletterPopup'
-import NavButtons from '@/components/NavButtons'
 import BackToTop from '@/components/BackToTop'
 
 const inter = Inter({
@@ -120,9 +119,8 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
-          <main className="min-h-screen pb-16 lg:pb-0">{children}</main>
+          <main className="min-h-screen">{children}</main>
           <Footer />
-          <NavButtons />
           <BackToTop />
           <NewsletterPopup />
         </ThemeProvider>

@@ -13,7 +13,7 @@ import Comments from '@/components/Comments'
 import JumpNav from '@/components/JumpNav'
 import Breadcrumb from '@/components/Breadcrumb'
 
-export const revalidate = 3600
+export const revalidate = 60
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>

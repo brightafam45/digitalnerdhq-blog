@@ -27,6 +27,23 @@ export default function ArticleContent({ html }: ArticleContentProps) {
     })
   }, [html])
 
+  // Inject IDs onto headings so JumpNav scroll targets exist in the DOM
+  useEffect(() => {
+    if (!ref.current) return
+    const headings = ref.current.querySelectorAll<HTMLHeadingElement>('h2, h3')
+    const seen = new Map<string, number>()
+    headings.forEach((el) => {
+      const base = el.textContent
+        ?.toLowerCase()
+        .replace(/[^a-z0-9\s]/g, '')
+        .replace(/\s+/g, '-')
+        .slice(0, 60) ?? ''
+      const count = seen.get(base) ?? 0
+      seen.set(base, count + 1)
+      el.id = count === 0 ? base : `${base}-${count}`
+    })
+  }, [html])
+
   useEffect(() => {
     if (!ref.current) return
     const preBlocks = ref.current.querySelectorAll<HTMLPreElement>('pre')
