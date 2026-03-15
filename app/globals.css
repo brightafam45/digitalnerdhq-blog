@@ -6,25 +6,25 @@
 
 /* ─── CSS Variables ──────────────────────────────────────────────────────────── */
 :root {
-  --bg: #f6f7f7;
+  --bg: #f6f5f4;
   --bg-secondary: #ffffff;
-  --text: #180f41;
+  --text: #060312;
   --text-muted: #6b7280;
   --border: #e5e7eb;
   --card-bg: #ffffff;
-  --primary: #180f41;
+  --primary: #060312;
   --accent: #ef4d50;
-  --blue: #4a90e2;
+  --blue: #254ed8;
 }
 
 .dark {
-  --bg: #0d0b1e;
-  --bg-secondary: #180f41;
-  --text: #f6f7f7;
+  --bg: #060312;
+  --bg-secondary: #0a0b13;
+  --text: #f6f5f4;
   --text-muted: #9ca3af;
-  --border: #2d2b4e;
-  --card-bg: #1a1835;
-  --primary: #f6f7f7;
+  --border: #1e2631;
+  --card-bg: #0a0b13;
+  --primary: #f6f5f4;
 }
 
 /* ─── Base Styles ────────────────────────────────────────────────────────────── */
@@ -57,7 +57,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #180f41;
+    background: #060312;
     border-radius: 4px;
   }
 
@@ -66,7 +66,7 @@
   }
 
   .dark ::-webkit-scrollbar-thumb {
-    background: #2d2b4e;
+    background: #1e2631;
   }
 
   .dark ::-webkit-scrollbar-thumb:hover {
@@ -168,7 +168,7 @@
     border-radius: 0.75rem;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 4px 24px rgba(24, 15, 65, 0.12);
+    box-shadow: 0 4px 24px rgba(6, 3, 18, 0.12);
   }
 
   .dark .article-content img {
@@ -199,7 +199,7 @@
 
   /* Code — dark background */
   .article-content code {
-    background-color: rgba(24, 15, 65, 0.08);
+    background-color: rgba(6, 3, 18, 0.08);
     color: #ef4d50;
     padding: 0.15rem 0.4rem;
     border-radius: 0.25rem;
@@ -212,7 +212,7 @@
   }
 
   .article-content pre {
-    background-color: #0d0b1e;
+    background-color: #060312;
     color: #e8e6f0;
     padding: 1.5rem;
     border-radius: 0.75rem;
@@ -222,7 +222,7 @@
     font-size: 0.875rem;
     line-height: 1.7;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    border: 1px solid #2d2b4e;
+    border: 1px solid #1e2631;
   }
 
   .article-content pre code {
@@ -277,7 +277,7 @@
   }
 
   .article-content th {
-    background-color: #180f41;
+    background-color: #060312;
     color: white;
     padding: 0.75rem 1rem;
     text-align: left;
@@ -308,7 +308,7 @@
   }
 
   .card:hover {
-    box-shadow: 0 10px 40px rgba(24, 15, 65, 0.12);
+    box-shadow: 0 10px 40px rgba(6, 3, 18, 0.12);
     transform: translateY(-2px);
   }
 

@@ -86,9 +86,9 @@ const organizationSchema = {
   url: 'https://www.digitalnerdhq.com',
   logo: `${siteUrl}/logo.png`,
   sameAs: [
-    'https://twitter.com/digitalnerdhq',
+    'https://twitter.com/DigitalNerdHQ',
     'https://www.linkedin.com/company/digitalnerdhq',
-    'https://github.com/brightafam45',
+    'https://www.instagram.com/digitalnerdhq',
   ],
   description: 'Creativity, innovation and empowerment. A platform for digital minds.',
   contactPoint: {

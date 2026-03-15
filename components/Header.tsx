@@ -8,12 +8,8 @@ import DarkModeToggle from '@/components/DarkModeToggle'
 import SearchBar from '@/components/SearchBar'
 
 const NAV_LINKS = [
-  { href: 'https://www.digitalnerdhq.com/about', label: 'About', external: true },
-  { href: 'https://www.digitalnerdhq.com/testimonials', label: 'Testimonials', external: true },
-  { href: 'https://www.digitalnerdhq.com/courses', label: 'Courses', external: true },
-  { href: 'https://www.digitalnerdhq.com/product', label: 'Product', external: true },
   { href: '/', label: 'Blog', external: false },
-  { href: 'https://www.digitalnerdhq.com/faq', label: 'FAQ', external: true },
+  { href: 'https://www.digitalnerdhq.com', label: 'Main Site', external: true },
 ]
 
 export default function Header() {
@@ -30,7 +26,6 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [handleScroll])
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileOpen(false)
   }, [pathname])
@@ -39,8 +34,8 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-[#180f41] transition-all duration-300 ${
-        scrolled ? 'backdrop-blur-md shadow-xl shadow-black/20 border-b border-white/10' : ''
+      className={`sticky top-0 z-50 bg-[#060312] transition-all duration-300 ${
+        scrolled ? 'backdrop-blur-md shadow-xl shadow-black/30 border-b border-white/10' : ''
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,7 +61,7 @@ export default function Header() {
                     rel="noopener noreferrer"
                     className="px-3 py-2 rounded-md text-sm font-medium text-white/80 hover:text-[#ef4d50] transition-colors duration-200"
                   >
-                    {link.label}
+                    {link.label} ↗
                   </a>
                 )
               }
@@ -98,7 +93,7 @@ export default function Header() {
               href="https://www.digitalnerdhq.com/contact"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-1 px-4 py-2 rounded-lg text-sm font-semibold text-white border border-white/30 hover:bg-white hover:text-[#180f41] transition-all duration-200 hover:border-white"
+              className="ml-1 px-4 py-2 rounded-lg text-sm font-semibold text-white border border-white/30 hover:bg-white hover:text-[#060312] transition-all duration-200 hover:border-white"
             >
               Contact Us
             </a>
@@ -129,10 +124,10 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile full-screen slide-down menu */}
+      {/* Mobile menu */}
       <div
         className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          mobileOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
+          mobileOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         <nav
@@ -181,7 +176,7 @@ export default function Header() {
               href="https://www.digitalnerdhq.com/contact"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center px-4 py-3 rounded-lg text-sm font-semibold text-white border border-white/30 hover:bg-white hover:text-[#180f41] transition-all duration-200"
+              className="flex items-center justify-center px-4 py-3 rounded-lg text-sm font-semibold text-white border border-white/30 hover:bg-white hover:text-[#060312] transition-all duration-200"
             >
               Contact Us
             </a>
