@@ -23,7 +23,7 @@ export default function BackToTop() {
       aria-label="Back to top"
       className="fixed z-50 bottom-24 right-5 lg:bottom-8 lg:right-6 w-11 h-11 rounded-xl shadow-lg transition-all duration-300 hover:scale-110 hover:opacity-90"
       style={{
-        backgroundColor: '#ef4d50',
+        backgroundColor: '#ef4444',
         color: '#ffffff',
         opacity: visible ? 1 : 0,
         transform: visible ? 'translateY(0)' : 'translateY(16px)',

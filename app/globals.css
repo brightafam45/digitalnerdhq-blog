@@ -13,7 +13,7 @@
   --border: #e5e7eb;
   --card-bg: #ffffff;
   --primary: #060312;
-  --accent: #ef4d50;
+  --accent: #ef4444;
   --blue: #254ed8;
 }
 
@@ -62,7 +62,7 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #ef4d50;
+    background: #ef4444;
   }
 
   .dark ::-webkit-scrollbar-thumb {
@@ -70,7 +70,7 @@
   }
 
   .dark ::-webkit-scrollbar-thumb:hover {
-    background: #ef4d50;
+    background: #ef4444;
   }
 }
 
@@ -159,7 +159,7 @@
   }
 
   .article-content a:hover {
-    color: #ef4d50;
+    color: #ef4444;
   }
 
   .article-content img {
@@ -177,7 +177,7 @@
 
   /* Blockquote with red left border */
   .article-content blockquote {
-    border-left: 4px solid #ef4d50;
+    border-left: 4px solid #ef4444;
     padding-left: 1.25rem;
     margin-left: 0;
     margin-right: 0;
@@ -185,7 +185,7 @@
     margin-bottom: 1.75rem;
     font-style: italic;
     color: var(--text-muted);
-    background-color: rgba(239, 77, 80, 0.05);
+    background-color: rgba(239, 68, 68, 0.05);
     padding-top: 0.875rem;
     padding-bottom: 0.875rem;
     padding-right: 1rem;
@@ -200,7 +200,7 @@
   /* Code — dark background */
   .article-content code {
     background-color: rgba(6, 3, 18, 0.08);
-    color: #ef4d50;
+    color: #ef4444;
     padding: 0.15rem 0.4rem;
     border-radius: 0.25rem;
     font-size: 0.875em;

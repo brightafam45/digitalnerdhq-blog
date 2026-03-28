@@ -113,7 +113,7 @@ export default function JumpNav({
           {!open && activeHeading && (
             <span
               className="text-xs font-medium truncate"
-              style={{ color: '#ef4d50' }}
+              style={{ color: '#ef4444' }}
             >
               · {activeHeading.text}
             </span>
@@ -154,7 +154,7 @@ export default function JumpNav({
                   className="w-full text-left flex items-start gap-2.5 py-1.5 px-2 rounded-lg transition-all duration-200 group"
                   style={
                     isActive
-                      ? { backgroundColor: 'rgba(239,77,80,0.08)', color: '#ef4d50' }
+                      ? { backgroundColor: 'rgba(239,68,68,0.08)', color: '#ef4444' }
                       : { color: 'var(--text-muted)' }
                   }
                 >
@@ -162,14 +162,14 @@ export default function JumpNav({
                     className="flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold mt-0.5"
                     style={
                       isActive
-                        ? { backgroundColor: '#ef4d50', color: 'white' }
+                        ? { backgroundColor: '#ef4444', color: 'white' }
                         : { backgroundColor: 'var(--border)', color: 'var(--text-muted)' }
                     }
                   >
                     {index + 1}
                   </span>
                   <span
-                    className="text-sm leading-snug group-hover:text-[#ef4d50] transition-colors"
+                    className="text-sm leading-snug group-hover:text-[#ef4444] transition-colors"
                     style={{ paddingLeft: heading.level === 3 ? '0.75rem' : '0' }}
                   >
                     {heading.text}

@@ -67,7 +67,7 @@ export default function AuthorCard({ author }: AuthorCardProps) {
             <Link
               href={`/authors/${author.username}`}
               className="text-sm font-semibold transition-colors duration-200 hover:opacity-80"
-              style={{ color: '#ef4d50' }}
+              style={{ color: '#ef4444' }}
             >
               View all posts →
             </Link>

@@ -53,7 +53,7 @@ export default async function TagPage({ params }: TagPageProps) {
       <div className="mb-8">
         <Link
           href="/tags"
-          className="inline-flex items-center gap-1.5 text-sm font-medium transition-colors duration-200 hover:text-[#ef4d50]"
+          className="inline-flex items-center gap-1.5 text-sm font-medium transition-colors duration-200 hover:text-[#ef4444]"
           style={{ color: 'var(--text-muted)' }}
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -67,7 +67,7 @@ export default async function TagPage({ params }: TagPageProps) {
       <div className="mb-10">
         <span
           className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
-          style={{ color: '#ef4d50', backgroundColor: 'rgba(239,77,80,0.1)' }}
+          style={{ color: '#ef4444', backgroundColor: 'rgba(239,68,68,0.1)' }}
         >
           # {tagName}
         </span>
@@ -76,7 +76,7 @@ export default async function TagPage({ params }: TagPageProps) {
           style={{ color: 'var(--text)', fontFamily: 'Inter, sans-serif', fontWeight: 900 }}
         >
           Articles tagged:{' '}
-          <span style={{ color: '#ef4d50' }}>#{tagName}</span>
+          <span style={{ color: '#ef4444' }}>#{tagName}</span>
         </h1>
         <p className="text-base" style={{ color: 'var(--text-muted)' }}>
           {posts.length} article{posts.length !== 1 ? 's' : ''} on this topic

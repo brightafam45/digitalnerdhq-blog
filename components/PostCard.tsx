@@ -13,7 +13,7 @@ function PlaceholderImage({ title }: { title: string }) {
     <div
       className="w-full h-full flex items-center justify-center"
       style={{
-        background: 'linear-gradient(135deg, #060312 0%, #1e2631 50%, #ef4d5020 100%)',
+        background: 'linear-gradient(135deg, #060312 0%, #1e2631 50%, #ef444420 100%)',
       }}
     >
       <span
@@ -57,12 +57,12 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
             {firstTag && (
               <span
                 className="inline-block text-[10px] font-semibold uppercase tracking-wide mb-1 px-1.5 py-0.5 rounded"
-                style={{ color: '#ef4d50', backgroundColor: 'rgba(239,77,80,0.08)' }}
+                style={{ color: '#ef4444', backgroundColor: 'rgba(239,68,68,0.08)' }}
               >
                 {firstTag.name}
               </span>
             )}
-            <h3 className="text-sm font-semibold leading-snug line-clamp-2 group-hover:text-[#ef4d50] transition-colors duration-200" style={{ color: 'var(--text)' }}>
+            <h3 className="text-sm font-semibold leading-snug line-clamp-2 group-hover:text-[#ef4444] transition-colors duration-200" style={{ color: 'var(--text)' }}>
               <Link href={`/blog/${post.slug}`}>{post.title}</Link>
             </h3>
             <div className="mt-1 flex items-center gap-1.5 text-xs" style={{ color: 'var(--text-muted)' }}>
@@ -107,13 +107,13 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
             {firstTag && (
               <span
                 className="inline-block text-xs font-semibold uppercase tracking-wide mb-2 px-2 py-0.5 rounded"
-                style={{ color: '#ef4d50', backgroundColor: 'rgba(239,77,80,0.08)' }}
+                style={{ color: '#ef4444', backgroundColor: 'rgba(239,68,68,0.08)' }}
               >
                 {firstTag.name}
               </span>
             )}
             <h3
-              className="font-bold text-base leading-snug line-clamp-2 group-hover:text-[#ef4d50] transition-colors duration-200 mb-2"
+              className="font-bold text-base leading-snug line-clamp-2 group-hover:text-[#ef4444] transition-colors duration-200 mb-2"
               style={{ color: 'var(--text)' }}
             >
               <Link href={`/blog/${post.slug}`}>{post.title}</Link>
@@ -176,13 +176,13 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
             {firstTag && (
               <span
                 className="inline-block text-xs font-semibold uppercase tracking-wide mb-3 px-2.5 py-1 rounded-full"
-                style={{ color: '#ef4d50', backgroundColor: 'rgba(239,77,80,0.08)' }}
+                style={{ color: '#ef4444', backgroundColor: 'rgba(239,68,68,0.08)' }}
               >
                 {firstTag.name}
               </span>
             )}
             <h2
-              className="font-bold text-xl md:text-2xl leading-tight group-hover:text-[#ef4d50] transition-colors duration-200 mb-3"
+              className="font-bold text-xl md:text-2xl leading-tight group-hover:text-[#ef4444] transition-colors duration-200 mb-3"
               style={{ color: 'var(--text)' }}
             >
               <Link href={`/blog/${post.slug}`}>{post.title}</Link>
@@ -247,13 +247,13 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
         {firstTag && (
           <span
             className="inline-block self-start text-xs font-semibold uppercase tracking-wide mb-3 px-2.5 py-1 rounded-full"
-            style={{ color: '#ef4d50', backgroundColor: 'rgba(239,77,80,0.08)' }}
+            style={{ color: '#ef4444', backgroundColor: 'rgba(239,68,68,0.08)' }}
           >
             {firstTag.name}
           </span>
         )}
         <h2
-          className="font-bold text-lg leading-snug group-hover:text-[#ef4d50] transition-colors duration-200 mb-2 line-clamp-2"
+          className="font-bold text-lg leading-snug group-hover:text-[#ef4444] transition-colors duration-200 mb-2 line-clamp-2"
           style={{ color: 'var(--text)' }}
         >
           <Link href={`/blog/${post.slug}`}>{post.title}</Link>

@@ -59,7 +59,7 @@ export default function Header() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-2 rounded-md text-sm font-medium text-white/80 hover:text-[#ef4d50] transition-colors duration-200"
+                    className="px-3 py-2 rounded-md text-sm font-medium text-white/80 hover:text-[#ef4444] transition-colors duration-200"
                   >
                     {link.label} ↗
                   </a>
@@ -72,13 +72,13 @@ export default function Header() {
                   href={link.href}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 relative ${
                     isActive
-                      ? 'text-[#ef4d50]'
-                      : 'text-white/80 hover:text-[#ef4d50]'
+                      ? 'text-[#ef4444]'
+                      : 'text-white/80 hover:text-[#ef4444]'
                   }`}
                 >
                   {link.label}
                   {isActive && (
-                    <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-[#ef4d50] rounded-full" />
+                    <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-[#ef4444] rounded-full" />
                   )}
                 </Link>
               )
@@ -144,7 +144,7 @@ export default function Header() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-3 rounded-lg text-sm font-medium text-white/80 hover:text-[#ef4d50] hover:bg-white/5 transition-all duration-200 flex items-center justify-between"
+                  className="px-3 py-3 rounded-lg text-sm font-medium text-white/80 hover:text-[#ef4444] hover:bg-white/5 transition-all duration-200 flex items-center justify-between"
                 >
                   {link.label}
                   <svg className="w-3.5 h-3.5 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -160,8 +160,8 @@ export default function Header() {
                 href={link.href}
                 className={`px-3 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                   isActive
-                    ? 'text-[#ef4d50] bg-white/5'
-                    : 'text-white/80 hover:text-[#ef4d50] hover:bg-white/5'
+                    ? 'text-[#ef4444] bg-white/5'
+                    : 'text-white/80 hover:text-[#ef4444] hover:bg-white/5'
                 }`}
               >
                 {link.label}

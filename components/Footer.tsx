@@ -18,8 +18,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Tagline + socials */}
           <div>
-            <Link href="/" className="text-base font-bold text-white hover:text-[#ef4d50] transition-colors duration-200">
-              Digital<span style={{ color: '#ef4d50' }}>NerdHQ</span> Blog
+            <Link href="/" className="text-base font-bold text-white hover:text-[#ef4444] transition-colors duration-200">
+              Digital<span style={{ color: '#ef4444' }}>NerdHQ</span> Blog
             </Link>
             <p className="mt-3 text-sm text-white/50 leading-relaxed max-w-xs">
               Where digital minds level up. Articles on digital marketing, tech, entrepreneurship, and online business.
@@ -33,7 +33,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow on Instagram"
-                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#ef4d50] flex items-center justify-center transition-all duration-200 hover:scale-110"
+                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#ef4444] flex items-center justify-center transition-all duration-200 hover:scale-110"
                 style={{ willChange: 'transform' }}
               >
                 <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
@@ -46,7 +46,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow on Twitter/X"
-                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#ef4d50] flex items-center justify-center transition-all duration-200 hover:scale-110"
+                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#ef4444] flex items-center justify-center transition-all duration-200 hover:scale-110"
                 style={{ willChange: 'transform' }}
               >
                 <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
@@ -59,7 +59,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow on LinkedIn"
-                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#ef4d50] flex items-center justify-center transition-all duration-200 hover:scale-110"
+                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#ef4444] flex items-center justify-center transition-all duration-200 hover:scale-110"
                 style={{ willChange: 'transform' }}
               >
                 <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">

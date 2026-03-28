@@ -158,7 +158,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     key={tag.id}
                     href={`/tags/${tag.slug}`}
                     className="inline-block text-xs font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full transition-colors duration-200 hover:opacity-80"
-                    style={{ color: '#ef4d50', backgroundColor: 'rgba(239,77,80,0.1)' }}
+                    style={{ color: '#ef4444', backgroundColor: 'rgba(239,68,68,0.1)' }}
                   >
                     {tag.name}
                   </Link>
@@ -314,7 +314,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                         )}
                         <div className="p-5">
                           <h3
-                            className="font-bold text-base leading-snug line-clamp-2 group-hover:text-[#ef4d50] transition-colors"
+                            className="font-bold text-base leading-snug line-clamp-2 group-hover:text-[#ef4444] transition-colors"
                             style={{ color: 'var(--text)' }}
                           >
                             {related.title}

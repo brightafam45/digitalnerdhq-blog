@@ -41,7 +41,7 @@ export default async function OGImage({ params }: Props) {
             left: 0,
             width: '4px',
             height: '630px',
-            backgroundColor: '#ef4d50',
+            backgroundColor: '#ef4444',
           }}
         />
 
@@ -65,8 +65,8 @@ export default async function OGImage({ params }: Props) {
             >
               <span
                 style={{
-                  backgroundColor: 'rgba(239,77,80,0.15)',
-                  color: '#ef4d50',
+                  backgroundColor: 'rgba(239,68,68,0.15)',
+                  color: '#ef4444',
                   fontSize: '16px',
                   fontWeight: 700,
                   padding: '6px 16px',
@@ -110,7 +110,7 @@ export default async function OGImage({ params }: Props) {
               <span style={{ color: '#ffffff', fontSize: '24px', fontWeight: 800 }}>
                 Digital
               </span>
-              <span style={{ color: '#ef4d50', fontSize: '24px', fontWeight: 800 }}>
+              <span style={{ color: '#ef4444', fontSize: '24px', fontWeight: 800 }}>
                 NerdHQ
               </span>
             </div>

@@ -50,7 +50,7 @@ export default async function TagsIndexPage() {
               <div className="flex items-start justify-between mb-3">
                 <span
                   className="inline-flex w-9 h-9 rounded-xl items-center justify-center font-bold text-sm transition-colors duration-200"
-                  style={{ backgroundColor: 'rgba(239,77,80,0.1)', color: '#ef4d50' }}
+                  style={{ backgroundColor: 'rgba(239,68,68,0.1)', color: '#ef4444' }}
                 >
                   #
                 </span>
@@ -62,7 +62,7 @@ export default async function TagsIndexPage() {
                 </span>
               </div>
               <h2
-                className="font-bold text-base group-hover:text-[#ef4d50] transition-colors duration-200"
+                className="font-bold text-base group-hover:text-[#ef4444] transition-colors duration-200"
                 style={{ color: 'var(--text)', fontFamily: 'Inter, sans-serif' }}
               >
                 {tag.name}

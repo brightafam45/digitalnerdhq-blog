@@ -70,9 +70,9 @@ function ShareButtons({ url, title }: { url: string; title: string }) {
         onClick={copyLink}
         className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 hover:scale-[1.02] text-left"
         style={{
-          backgroundColor: copied ? 'rgba(239,77,80,0.08)' : 'var(--bg-secondary)',
-          border: `1px solid ${copied ? '#ef4d50' : 'var(--border)'}`,
-          color: copied ? '#ef4d50' : 'var(--text)',
+          backgroundColor: copied ? 'rgba(239,68,68,0.08)' : 'var(--bg-secondary)',
+          border: `1px solid ${copied ? '#ef4444' : 'var(--border)'}`,
+          color: copied ? '#ef4444' : 'var(--text)',
           willChange: 'transform',
         }}
       >
@@ -138,13 +138,13 @@ export default function ArticleSidebar({
               type="email"
               placeholder="your@email.com"
               required
-              className="w-full px-3 py-2.5 rounded-lg text-sm text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-[#ef4d50]/50"
+              className="w-full px-3 py-2.5 rounded-lg text-sm text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-[#ef4444]/50"
               style={{ backgroundColor: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)' }}
             />
             <button
               type="submit"
               className="w-full py-2.5 rounded-lg text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
-              style={{ backgroundColor: '#ef4d50' }}
+              style={{ backgroundColor: '#ef4444' }}
             >
               Subscribe Free
             </button>

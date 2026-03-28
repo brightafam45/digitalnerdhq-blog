@@ -34,9 +34,9 @@ export default function CategoryFilter({ tags, activeSlug, onCategoryChange }: C
           style={
             activeSlug === null
               ? {
-                  backgroundColor: '#ef4d50',
+                  backgroundColor: '#ef4444',
                   color: 'white',
-                  boxShadow: '0 2px 12px rgba(239,77,80,0.35)',
+                  boxShadow: '0 2px 12px rgba(239,68,68,0.35)',
                 }
               : {
                   border: '1.5px solid var(--border)',
@@ -58,9 +58,9 @@ export default function CategoryFilter({ tags, activeSlug, onCategoryChange }: C
               style={
                 isActive
                   ? {
-                      backgroundColor: '#ef4d50',
+                      backgroundColor: '#ef4444',
                       color: 'white',
-                      boxShadow: '0 2px 12px rgba(239,77,80,0.35)',
+                      boxShadow: '0 2px 12px rgba(239,68,68,0.35)',
                     }
                   : {
                       border: '1.5px solid var(--border)',

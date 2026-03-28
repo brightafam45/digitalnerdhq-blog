@@ -20,7 +20,7 @@ function highlightText(text: string, query: string): string {
   const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   return text.replace(
     new RegExp(`(${escaped})`, 'gi'),
-    '<mark style="background:rgba(239,77,80,0.2);color:#ef4d50;border-radius:2px;padding:0 2px;">$1</mark>'
+    '<mark style="background:rgba(239,68,68,0.2);color:#ef4444;border-radius:2px;padding:0 2px;">$1</mark>'
   )
 }
 
@@ -117,7 +117,7 @@ function SearchPageInner() {
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search by title, topic, or keyword..."
           autoFocus
-          className="w-full pl-12 pr-12 py-4 rounded-2xl text-base transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#ef4d50]/30"
+          className="w-full pl-12 pr-12 py-4 rounded-2xl text-base transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#ef4444]/30"
           style={{
             backgroundColor: 'var(--card-bg)',
             border: '2px solid var(--border)',
@@ -150,7 +150,7 @@ function SearchPageInner() {
               <button
                 key={s}
                 onClick={() => setQuery(s)}
-                className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 hover:border-[#ef4d50] hover:text-[#ef4d50]"
+                className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 hover:border-[#ef4444] hover:text-[#ef4444]"
                 style={{
                   border: '1.5px solid var(--border)',
                   color: 'var(--text-muted)',
@@ -167,7 +167,7 @@ function SearchPageInner() {
       {/* Loading */}
       {loading && (
         <div className="flex items-center justify-center py-12">
-          <svg className="w-6 h-6 animate-spin" style={{ color: '#ef4d50' }} viewBox="0 0 24 24" fill="none">
+          <svg className="w-6 h-6 animate-spin" style={{ color: '#ef4444' }} viewBox="0 0 24 24" fill="none">
             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
           </svg>
@@ -208,7 +208,7 @@ function SearchPageInner() {
                     key={s}
                     onClick={() => setQuery(s)}
                     className="px-3 py-1.5 rounded-full text-xs font-medium transition-colors"
-                    style={{ color: '#ef4d50', backgroundColor: 'rgba(239,77,80,0.1)' }}
+                    style={{ color: '#ef4444', backgroundColor: 'rgba(239,68,68,0.1)' }}
                   >
                     Try: {s}
                   </button>
@@ -235,8 +235,8 @@ function SearchPageInner() {
                       <div
                         className="mt-2 px-3 py-2 rounded-lg text-xs leading-relaxed"
                         style={{
-                          backgroundColor: 'rgba(239,77,80,0.04)',
-                          border: '1px solid rgba(239,77,80,0.1)',
+                          backgroundColor: 'rgba(239,68,68,0.04)',
+                          border: '1px solid rgba(239,68,68,0.1)',
                           color: 'var(--text-muted)',
                         }}
                         dangerouslySetInnerHTML={{ __html: `...${highlight.slice(0, 120)}...` }}

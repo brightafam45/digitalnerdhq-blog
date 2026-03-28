@@ -97,7 +97,7 @@ export default function Comments({ postId, postSlug }: CommentsProps) {
         {comments.length > 0 && (
           <span
             className="text-sm font-semibold px-2 py-0.5 rounded-full"
-            style={{ backgroundColor: 'rgba(239,77,80,0.1)', color: '#ef4d50' }}
+            style={{ backgroundColor: 'rgba(239,68,68,0.1)', color: '#ef4444' }}
           >
             {comments.length}
           </span>
@@ -146,7 +146,7 @@ export default function Comments({ postId, postSlug }: CommentsProps) {
       >
         <svg
           className="w-8 h-8 mx-auto mb-3"
-          style={{ color: '#ef4d50' }}
+          style={{ color: '#ef4444' }}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -165,7 +165,7 @@ export default function Comments({ postId, postSlug }: CommentsProps) {
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white transition-all duration-200 hover:opacity-90"
-          style={{ backgroundColor: '#ef4d50' }}
+          style={{ backgroundColor: '#ef4444' }}
         >
           Comment on Hashnode ↗
         </a>

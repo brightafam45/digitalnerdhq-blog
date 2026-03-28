@@ -33,7 +33,7 @@ function FeaturedCard({ post }: { post: Post }) {
         <div
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(135deg, #180f41 0%, #2d1a6e 50%, #ef4d5040 100%)',
+            background: 'linear-gradient(135deg, #180f41 0%, #2d1a6e 50%, #ef444440 100%)',
           }}
         />
       )}
@@ -53,7 +53,7 @@ function FeaturedCard({ post }: { post: Post }) {
         <div className="mb-4">
           <span
             className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-            style={{ backgroundColor: '#ef4d50', color: 'white' }}
+            style={{ backgroundColor: '#ef4444', color: 'white' }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-white/80 animate-pulse" />
             Featured
@@ -63,7 +63,7 @@ function FeaturedCard({ post }: { post: Post }) {
         {firstTag && (
           <span
             className="inline-block text-xs font-semibold uppercase tracking-wide mb-3 px-2.5 py-1 rounded-full"
-            style={{ color: '#ef4d50', backgroundColor: 'rgba(239,77,80,0.15)', border: '1px solid rgba(239,77,80,0.3)' }}
+            style={{ color: '#ef4444', backgroundColor: 'rgba(239,68,68,0.15)', border: '1px solid rgba(239,68,68,0.3)' }}
           >
             {firstTag.name}
           </span>
@@ -111,7 +111,7 @@ function FeaturedCard({ post }: { post: Post }) {
           <Link
             href={`/blog/${post.slug}`}
             className="relative z-20 flex items-center gap-1.5 text-sm font-semibold text-white px-4 py-2 rounded-lg transition-all duration-200 hover:gap-2.5"
-            style={{ backgroundColor: '#ef4d50' }}
+            style={{ backgroundColor: '#ef4444' }}
           >
             Read Article
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -164,7 +164,7 @@ function SmallCard({ post }: { post: Post }) {
         {firstTag && (
           <span
             className="inline-block text-[10px] font-bold uppercase tracking-widest mb-2 px-2 py-0.5 rounded-full"
-            style={{ backgroundColor: 'rgba(239,77,80,0.8)', color: 'white' }}
+            style={{ backgroundColor: 'rgba(239,68,68,0.8)', color: 'white' }}
           >
             {firstTag.name}
           </span>

@@ -11,7 +11,7 @@ const config: Config = {
     extend: {
       colors: {
         primary: '#180f41',
-        accent: '#ef4d50',
+        accent: '#ef4444',
         blue: {
           DEFAULT: '#4a90e2',
           500: '#4a90e2',

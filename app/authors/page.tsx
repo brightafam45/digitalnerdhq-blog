@@ -119,7 +119,7 @@ export default async function AuthorsPage() {
                 <Link
                   href={`/authors/${author.username}`}
                   className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors hover:opacity-80"
-                  style={{ color: '#ef4d50' }}
+                  style={{ color: '#ef4444' }}
                 >
                   View posts
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

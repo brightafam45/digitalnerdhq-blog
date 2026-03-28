@@ -61,7 +61,7 @@ export default function BlogPageClient({ allPosts, allTags }: BlogPageClientProp
             value={searchQuery}
             onChange={handleSearch}
             placeholder="Search articles..."
-            className="w-full pl-9 pr-4 py-2.5 rounded-xl text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#ef4d50]/30"
+            className="w-full pl-9 pr-4 py-2.5 rounded-xl text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#ef4444]/30"
             style={{
               backgroundColor: 'var(--card-bg)',
               border: '1px solid var(--border)',
@@ -106,7 +106,7 @@ export default function BlogPageClient({ allPosts, allTags }: BlogPageClientProp
               setPage(1)
             }}
             className="mt-4 text-sm font-semibold transition-colors hover:opacity-80"
-            style={{ color: '#ef4d50' }}
+            style={{ color: '#ef4444' }}
           >
             Clear filters
           </button>
@@ -149,7 +149,7 @@ export default function BlogPageClient({ allPosts, allTags }: BlogPageClientProp
                     className="w-9 h-9 rounded-lg text-sm font-medium transition-all duration-200"
                     style={
                       p === page
-                        ? { backgroundColor: '#ef4d50', color: 'white' }
+                        ? { backgroundColor: '#ef4444', color: 'white' }
                         : {
                             border: '1px solid var(--border)',
                             color: 'var(--text)',

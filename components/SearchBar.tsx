@@ -121,7 +121,7 @@ export default function SearchBar() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search articles..."
-              className="w-52 md:w-64 pl-9 pr-8 py-2 rounded-lg text-sm text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#ef4d50]/50"
+              className="w-52 md:w-64 pl-9 pr-8 py-2 rounded-lg text-sm text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#ef4444]/50"
               style={{ backgroundColor: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.15)' }}
               autoComplete="off"
             />
@@ -178,7 +178,7 @@ export default function SearchBar() {
                         setQuery('')
                         setResults([])
                       }}
-                      className="flex items-center gap-3 px-4 py-3 transition-colors duration-150 hover:bg-[#ef4d50]/5"
+                      className="flex items-center gap-3 px-4 py-3 transition-colors duration-150 hover:bg-[#ef4444]/5"
                     >
                       {post.coverImage?.url && (
                         <div className="relative w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
@@ -212,7 +212,7 @@ export default function SearchBar() {
                     setResults([])
                   }}
                   className="flex items-center justify-center gap-1.5 px-4 py-3 text-sm font-semibold transition-colors duration-150"
-                  style={{ color: '#ef4d50' }}
+                  style={{ color: '#ef4444' }}
                 >
                   See all results for &ldquo;{query}&rdquo;
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
