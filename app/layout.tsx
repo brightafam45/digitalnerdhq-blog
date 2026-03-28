@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 import BackToTop from '@/components/BackToTop'
+import NewsletterPopup from '@/components/NewsletterPopup'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -127,6 +128,7 @@ export default function RootLayout({
           <main className="min-h-screen">{children}</main>
           <Footer />
           <BackToTop />
+          <NewsletterPopup />
           
         </ThemeProvider>
       </body>
