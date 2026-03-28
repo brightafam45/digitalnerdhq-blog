@@ -12,6 +12,7 @@ import AuthorCard from '@/components/AuthorCard'
 import Comments from '@/components/Comments'
 import JumpNav from '@/components/JumpNav'
 import Breadcrumb from '@/components/Breadcrumb'
+import FadeIn from '@/components/FadeIn'
 
 export const revalidate = 60
 
@@ -149,6 +150,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           ]} />
 
           {/* Article header */}
+          <FadeIn>
           <div className="max-w-3xl mb-8">
             {/* Tags */}
             {post.tags.length > 0 && (
@@ -216,6 +218,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </div>
             </div>
           </div>
+          </FadeIn>
 
           {/* AI Summarizer */}
           <div className="max-w-3xl">
@@ -275,6 +278,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
           {/* Related posts */}
           {relatedPosts.length > 0 && (
+            <FadeIn>
             <section
               className="mt-16 pt-12"
               style={{ borderTop: '1px solid var(--border)' }}
@@ -329,6 +333,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 ))}
               </div>
             </section>
+            </FadeIn>
           )}
         </div>
       </article>

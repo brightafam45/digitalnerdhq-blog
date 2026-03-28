@@ -5,6 +5,7 @@ import PostCard from '@/components/PostCard'
 import NewsletterInline from '@/components/NewsletterInline'
 import Link from 'next/link'
 import HomepageClient from '@/components/HomepageClient'
+import FadeIn from '@/components/FadeIn'
 
 export const revalidate = 60
 
@@ -74,45 +75,49 @@ export default async function HomePage() {
       />
 
       {/* Newsletter */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-        <NewsletterInline />
-      </section>
+      <FadeIn>
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+          <NewsletterInline />
+        </section>
+      </FadeIn>
 
       {/* Explore Topics */}
       {tags.length > 0 && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-          <div className="text-center mb-8">
-            <h2
-              className="font-bold text-2xl md:text-3xl mb-2"
-              style={{ color: 'var(--text)', fontFamily: 'Inter, sans-serif' }}
-            >
-              Explore Topics
-            </h2>
-            <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-              Browse articles by topic
-            </p>
-          </div>
-          <div className="flex flex-wrap justify-center gap-3">
-            {tags.slice(0, 20).map((tag: Tag) => (
-              <Link
-                key={tag.slug}
-                href={`/tags/${tag.slug}`}
-                className="px-4 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
-                style={{
-                  border: '1.5px solid var(--border)',
-                  color: 'var(--text)',
-                  backgroundColor: 'var(--card-bg)',
-                  willChange: 'transform',
-                }}
+        <FadeIn delay={0.1}>
+          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+            <div className="text-center mb-8">
+              <h2
+                className="font-bold text-2xl md:text-3xl mb-2"
+                style={{ color: 'var(--text)', fontFamily: 'Inter, sans-serif' }}
               >
-                #{tag.name}
-                {tag.postsCount !== undefined && (
-                  <span className="ml-1.5 text-xs opacity-50">{tag.postsCount}</span>
-                )}
-              </Link>
-            ))}
-          </div>
-        </section>
+                Explore Topics
+              </h2>
+              <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
+                Browse articles by topic
+              </p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-3">
+              {tags.slice(0, 20).map((tag: Tag) => (
+                <Link
+                  key={tag.slug}
+                  href={`/tags/${tag.slug}`}
+                  className="px-4 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                  style={{
+                    border: '1.5px solid var(--border)',
+                    color: 'var(--text)',
+                    backgroundColor: 'var(--card-bg)',
+                    willChange: 'transform',
+                  }}
+                >
+                  #{tag.name}
+                  {tag.postsCount !== undefined && (
+                    <span className="ml-1.5 text-xs opacity-50">{tag.postsCount}</span>
+                  )}
+                </Link>
+              ))}
+            </div>
+          </section>
+        </FadeIn>
       )}
     </>
   )

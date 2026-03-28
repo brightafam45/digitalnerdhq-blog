@@ -1,6 +1,9 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import { format } from 'date-fns'
+import { motion } from 'framer-motion'
 import type { Post } from '@/types'
 
 interface HeroGridProps {
@@ -194,15 +197,28 @@ export default function HeroGrid({ featured, recent }: HeroGridProps) {
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4">
       <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
         {/* Left: Featured (60%) */}
-        <div className="lg:w-[60%]">
+        <motion.div
+          className="lg:w-[60%]"
+          initial={{ opacity: 0, x: -32 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+        >
           <FeaturedCard post={featured} />
-        </div>
+        </motion.div>
 
         {/* Right: 2 stacked cards (40%) */}
         {sideCards.length > 0 && (
           <div className="lg:w-[40%] flex flex-row lg:flex-col gap-4">
-            {sideCards.map((post) => (
-              <SmallCard key={post.id} post={post} />
+            {sideCards.map((post, i) => (
+              <motion.div
+                key={post.id}
+                className="flex-1"
+                initial={{ opacity: 0, x: 32 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1], delay: 0.1 + i * 0.1 }}
+              >
+                <SmallCard post={post} />
+              </motion.div>
             ))}
           </div>
         )}

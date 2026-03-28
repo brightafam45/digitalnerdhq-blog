@@ -1,9 +1,20 @@
 'use client'
 
 import { useState, useCallback } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import type { Post, Tag } from '@/types'
 import PostCard from '@/components/PostCard'
 import CategoryFilter from '@/components/CategoryFilter'
+
+const gridVariants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.07 } },
+}
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] } },
+}
 
 const PAGE_SIZE = 12
 
@@ -112,11 +123,21 @@ export default function BlogPageClient({ allPosts, allTags }: BlogPageClientProp
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {paginatedPosts.map((post) => (
-            <PostCard key={post.id} post={post} variant="default" />
-          ))}
-        </div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={`${activeTag ?? 'all'}-${page}`}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            variants={gridVariants}
+            initial="hidden"
+            animate="show"
+          >
+            {paginatedPosts.map((post) => (
+              <motion.div key={post.id} variants={cardVariants}>
+                <PostCard post={post} variant="default" />
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
       )}
 
       {/* Pagination */}

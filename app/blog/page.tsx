@@ -2,6 +2,7 @@ import { getPosts } from '@/lib/hashnode'
 import type { Post, Tag } from '@/types'
 import type { Metadata } from 'next'
 import BlogPageClient from '@/components/BlogPageClient'
+import FadeIn from '@/components/FadeIn'
 
 export const revalidate = 60
 
@@ -32,17 +33,19 @@ export default async function BlogPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       {/* Page Header */}
-      <div className="mb-10">
-        <h1
-          className="font-black text-3xl md:text-4xl mb-2"
-          style={{ color: 'var(--text)', fontFamily: 'Inter, sans-serif', fontWeight: 900 }}
-        >
-          All Articles
-        </h1>
-        <p className="text-base" style={{ color: 'var(--text-muted)' }}>
-          Where digital minds level up — {allPosts.length} articles published
-        </p>
-      </div>
+      <FadeIn>
+        <div className="mb-10">
+          <h1
+            className="font-black text-3xl md:text-4xl mb-2"
+            style={{ color: 'var(--text)', fontFamily: 'Inter, sans-serif', fontWeight: 900 }}
+          >
+            All Articles
+          </h1>
+          <p className="text-base" style={{ color: 'var(--text-muted)' }}>
+            Where digital minds level up — {allPosts.length} articles published
+          </p>
+        </div>
+      </FadeIn>
 
       <BlogPageClient allPosts={allPosts} allTags={allTags} />
     </div>
