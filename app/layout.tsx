@@ -4,7 +4,7 @@ import { ThemeProvider } from 'next-themes'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import NewsletterPopup from '@/components/NewsletterPopup'
+
 import BackToTop from '@/components/BackToTop'
 
 const inter = Inter({
@@ -18,6 +18,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://blog.digitalnerdhq.
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+    shortcut: '/logo.png',
+  },
   title: {
     template: '%s | DigitalNerdHQ Blog',
     default: 'DigitalNerdHQ Blog — Where Digital Minds Level Up',
@@ -122,7 +127,7 @@ export default function RootLayout({
           <main className="min-h-screen">{children}</main>
           <Footer />
           <BackToTop />
-          <NewsletterPopup />
+          
         </ThemeProvider>
       </body>
     </html>
