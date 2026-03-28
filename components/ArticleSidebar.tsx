@@ -119,36 +119,25 @@ export default function ArticleSidebar({
         {/* Newsletter CTA */}
         <div
           className="p-5 rounded-xl"
-          style={{ backgroundColor: '#180f41' }}
+          style={{ backgroundColor: '#060312', border: '1px solid rgba(255,255,255,0.08)' }}
         >
           <p className="text-xs font-bold uppercase tracking-widest text-white/50 mb-2">
             Newsletter
           </p>
-          <h4 className="text-white font-bold text-base mb-2 leading-snug">
+          <h4 className="text-white font-bold text-base mb-1 leading-snug">
             Get articles in your inbox
           </h4>
-          <p className="text-white/60 text-xs leading-relaxed mb-4">
-            Join our newsletter. No spam, just quality content on digital marketing and tech.
+          <p className="text-white/50 text-xs leading-relaxed mb-4">
+            No spam. Unsubscribe anytime.
           </p>
-          <form
-            onSubmit={(e) => e.preventDefault()}
-            className="flex flex-col gap-2"
-          >
-            <input
-              type="email"
-              placeholder="your@email.com"
-              required
-              className="w-full px-3 py-2.5 rounded-lg text-sm text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-[#ef4444]/50"
-              style={{ backgroundColor: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)' }}
-            />
-            <button
-              type="submit"
-              className="w-full py-2.5 rounded-lg text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
-              style={{ backgroundColor: '#ef4444' }}
-            >
-              Subscribe Free
-            </button>
-          </form>
+          <iframe
+            src="https://digitalnerdhq.substack.com/embed"
+            width="100%"
+            height="150"
+            style={{ border: 'none', background: 'transparent', display: 'block' }}
+            frameBorder="0"
+            scrolling="no"
+          />
         </div>
 
         {/* Share */}

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import PostCard from '@/components/PostCard'
 
-export const revalidate = 3600
+export const revalidate = 60
 
 interface AuthorPageProps {
   params: Promise<{ username: string }>

@@ -106,12 +106,10 @@ export default async function TagPage({ params }: TagPageProps) {
       )}
 
       {/* Load more */}
-      {publication.posts?.pageInfo?.hasNextPage && (
+      {publication?.posts?.pageInfo?.hasNextPage && (
         <div className="mt-12 text-center">
           <a
-            href="https://digitalnerdhq.hashnode.dev"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/blog"
             className="inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded-xl transition-all duration-200 hover:shadow-md"
             style={{
               border: '1px solid var(--border)',
@@ -119,7 +117,7 @@ export default async function TagPage({ params }: TagPageProps) {
               backgroundColor: 'var(--card-bg)',
             }}
           >
-            View all #{tagName} posts on Hashnode ↗
+            Browse all articles →
           </a>
         </div>
       )}
