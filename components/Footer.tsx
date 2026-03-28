@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Logo from '@/components/Logo'
 import NewsletterInline from '@/components/NewsletterInline'
 
 export default function Footer() {
@@ -17,12 +16,12 @@ export default function Footer() {
       {/* Main footer content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Logo + tagline + socials */}
+          {/* Tagline + socials */}
           <div>
-            <Link href="/" aria-label="DigitalNerdHQ Blog">
-              <Logo size="md" showTagline darkBg />
+            <Link href="/" className="text-base font-bold text-white hover:text-[#ef4d50] transition-colors duration-200">
+              Digital<span style={{ color: '#ef4d50' }}>NerdHQ</span> Blog
             </Link>
-            <p className="mt-4 text-sm text-white/50 leading-relaxed max-w-xs">
+            <p className="mt-3 text-sm text-white/50 leading-relaxed max-w-xs">
               Where digital minds level up. Articles on digital marketing, tech, entrepreneurship, and online business.
             </p>
 

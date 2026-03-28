@@ -20,7 +20,7 @@ export default function Logo({ size = 'md', showTagline = false, darkBg = false 
       <img
         src="/logo.png"
         alt="DigitalNerdHQ"
-        style={{ height, width: 'auto', display: 'block' }}
+        style={{ height, width: 'auto', maxWidth: height * 4, display: 'block', objectFit: 'contain' }}
       />
       {showTagline && (
         <span
